@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const value = input.value;
         const parsedValue = parseInt(value, 10);
 
-        var parsedValueMod2 = parsedValue % 10;
         var givenSum = 0;
 
         var n10 = 0;
