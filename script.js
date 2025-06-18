@@ -7,32 +7,36 @@ document.addEventListener("DOMContentLoaded", () => {
         const value = input.value;
         const parsedValue = parseInt(value, 10);
 
-        var parsedValueMod10 = parsedValue % 10;
-        if (parsedValueMod10 % 10 === 1 || parsedValueMod10 === 3)
+        var parsedValueMod2 = parsedValue % 10;
+        var givenSum = 0;
+
+        var n10 = 0;
+        var n5 = 0;
+        var n2 = 0;
+
+        if (parsedValue % 2 === 0)
         {
-            output.textContent = "введённую сумму нельзя выдать монетами по 10, 5 и 2 рубля";
+            givenSum = 2;
+            n2++;
         }
         else
         {
-            var n10 = Math.floor(parsedValue / 10);
-            var n5 = 0;
-            var n2 = 0;
-
-            if (parsedValueMod10 < 5)
-            {
-                n2 = parsedValueMod10 / 2;
-            }
-            else
-            {
-                if ((parsedValueMod10 - 5) % 2 === 0)
-                {
-                    n5 = 1;
-                    parsedValueMod10 -= 5;
-                }
-                n2 = parsedValueMod10 / 2;
-            }
-
-            output.textContent = `[${n10}, ${n5}, ${n2}]`;
+            givenSum = 5;
+            n5++;
         }
+
+        while (givenSum < parsedValue)
+        {
+            givenSum += 2;
+            n2++;
+
+            if (n2 === 5)
+            {
+                n10++;
+                n2 -= 5;
+            }
+        }
+
+        output.textContent = `[${n10}, ${n5}, ${n2}]`;
     });
 });
