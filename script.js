@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const parsedValue = parseInt(value, 10);
 
         var parsedValueMod10 = parsedValue % 10;
-        
+
         var n10 = Math.floor(parsedValue / 10);
         var n5 = 0;
         var n2 = 0;
